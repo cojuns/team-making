@@ -1,0 +1,128 @@
+* {
+    font-family: 'Jua', sans-serif; /*전체 글씨체 변경*/
+}
+
+.body-color {
+    background-color: lightgray; /*전체 body color*/
+}
+
+.wrap {
+
+
+    width: 800px;
+    height: 1000px;
+    margin: auto; /*body 전체 클래스로 묶고 가운데 정렬*/
+    padding-top: 200px;
+    
+    
+
+    
+    
+    
+}
+
+.final-container {
+
+    width: 722px;
+    height: 220px;
+    left: 359px;
+    top: 309px;
+    
+    background: #FFFDFD;
+    border-radius: 20px;
+
+    text-align: center;
+
+    margin: auto;
+    
+    
+
+}
+
+p {
+    width: 751px;
+height: 36px;
+left: 494px;
+top: 459px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 36px;
+
+color: #000000;
+
+
+
+
+}
+
+
+.reset {
+
+margin-top: 100px;
+
+}
+
+
+.btn-again {
+
+width: 220px;
+height: 79px;
+left: 610px;
+top: 591px;
+
+background: #FE8686;
+border-radius: 20px;
+border-color: #FE8686;
+
+
+
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+}
+.btn-again:hover {
+    border: 0.5px solid white;
+}
+
+.share-box {
+
+    width: 311px;
+    height: 92px;
+    left: 564px;
+    top: 749px;
+    
+    background: #FDFFE8;
+    border-radius: 20px;
+
+    margin: auto;
+    margin-top: 79px;
+
+}
+
+
+.share {
+
+
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    
+    
+    color: #124019;
+
+}

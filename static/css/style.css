@@ -1,0 +1,80 @@
+* {
+    font-family: 'Jua', sans-serif; /*전체 글씨체 변경*/
+}
+
+.body-color {
+    background-color: lightgray; /*전체 body color*/
+}
+
+.wrap {
+
+
+    width: 400px;
+    margin: auto; /*body 전체 클래스로 묶고 가운데 정렬*/
+    padding-top: 200px;
+}
+
+
+h5 {
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+
+    margin-bottom: 20px;
+
+    color: #6886A2;
+
+}
+
+p {
+
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 18px;
+
+
+    color: #000000;
+
+
+}
+
+
+
+
+
+
+.mybutton {
+
+    margin-top: 50px;
+    margin-left: 60px;
+
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+
+
+    box-sizing: border-box; /*버튼 박스 */
+    background: #89A7C3;
+    border: 1px solid #89A7C3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding-top: 5px;
+    width: 242px;
+    height: 47px;
+    left: 599px;
+    top: 809px;
+
+}
+
+.mybutton:hover {
+    border: 2px solid white;
+}
+

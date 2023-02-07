@@ -1,0 +1,103 @@
+* {
+    font-family: 'Jua', sans-serif; /*전체 글씨체 변경*/
+}
+
+.body-color {
+    background-color: lightgray; /*전체 body color*/
+}
+
+.wrap {
+
+
+    width: 400px;
+    margin: auto; /*body 전체 클래스로 묶고 가운데 정렬*/
+    padding-top: 200px;
+}
+
+
+.topinfo {
+
+    display: flex;
+    background-color: #FBFFEE;
+
+    justify-content: space-between;
+
+    height: 87px;
+    
+    
+}
+
+.level {
+
+width: 97px;
+height: 36px;
+left: 84px;
+top: 26px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 36px;
+
+color: #000000;
+
+margin-top: 26px;
+margin-left: 84px;
+
+
+
+}
+
+#score {
+
+    color: red;
+    
+    
+}
+
+#time {
+
+width: 120px;
+height: 36px;
+left: 1243px;
+top: 26px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 36px;
+
+color: #000000;
+
+margin-top: 26px;
+
+
+
+}
+
+.quiz-button {
+
+    width: 181px;
+    height: 181px;
+    left: 536px;
+    top: 328px;
+    
+    background: #FF8B8B;
+
+    
+    
+    
+
+}
+
+.correct-button {
+    width: 181px;
+    height: 181px;
+    left: 536px;
+    top: 328px;
+    
+    background: rgba(255, 139, 139, 0.55);
+
+}
