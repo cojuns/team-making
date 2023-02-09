@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./style3.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>색감 구별 테스트 나의 점수는??</title>
 </head>
 <body class="body-color">
@@ -23,6 +24,7 @@
             <div class="share-box">
                 <div class="share">내 점수 공유하기</div>
                 <br>
+                <div class="share-ring">
                 <a href="javascript:;" class="sharekakao">
                     <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQ4Gzb%2FbtrYeYjPS6B%2FlGquuGoxNwv1S4C82zibHK%2Fimg.png" width="30">  
                 </a>
@@ -38,6 +40,7 @@
                 <a href="javascript:;" class="sharetwitter">
                     <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbf0BT4%2FbtrYjydq22Q%2FqJ9vq2e9CTSzDwTgMkvCi0%2Fimg.png" width="30">  
                 </a>
+            </div>
             </div>
 
 

@@ -7,18 +7,10 @@
 }
 
 .wrap {
-
-
     width: 800px;
     height: 1000px;
     margin: auto; /*body 전체 클래스로 묶고 가운데 정렬*/
-    padding-top: 200px;
-    
-    
-
-    
-    
-    
+    padding-top: 200px;  
 }
 
 .final-container {
@@ -34,13 +26,10 @@
     text-align: center;
 
     margin: auto;
-    
-    
-
 }
 
 p {
-    width: 751px;
+width: 751px;
 height: 36px;
 left: 494px;
 top: 459px;
@@ -52,12 +41,14 @@ font-size: 30px;
 line-height: 36px;
 
 color: #000000;
-
-
-
-
 }
 
+.level {
+
+font-size: 50px;
+color: blue;
+
+}
 
 .reset {
 
@@ -77,9 +68,6 @@ background: #FE8686;
 border-radius: 20px;
 border-color: #FE8686;
 
-
-
-
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -88,7 +76,6 @@ line-height: 24px;
 text-align: center;
 
 color: #FFFFFF;
-
 
 }
 .btn-again:hover {
@@ -113,7 +100,7 @@ color: #FFFFFF;
 
 .share {
 
-
+    
     
     font-family: 'Inter';
     font-style: normal;
@@ -126,3 +113,5 @@ color: #FFFFFF;
     color: #124019;
 
 }
+
+
