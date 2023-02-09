@@ -13,6 +13,25 @@
     padding-top: 200px;  
 }
 
+.imgs {
+    
+    width: 500px;
+    height: 400px;
+    left: 359px;
+    top: 309px;
+
+    background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FuIz3S%2FbtrYKG9JJ8O%2FyDV7mvABjFi2Lkfty323i0%2Fimg.png');
+    background-position: center;
+    background-size: auto;
+    
+    margin: auto;
+
+    
+
+    
+}
+
+
 .final-container {
 
     width: 722px;
@@ -20,12 +39,14 @@
     left: 359px;
     top: 309px;
     
-    background: #FFFDFD;
+    background: lightgray;
     border-radius: 20px;
 
     text-align: center;
 
     margin: auto;
+
+    margin-top: 100px;
 }
 
 p {
