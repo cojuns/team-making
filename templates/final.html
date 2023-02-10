@@ -5,7 +5,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> 
     <title>색감 구별 테스트 나의 점수는??</title>
+
+    <script>
+        function twitter() {
+        let sendText = "색감 테스트 나의 점수는??"; // 전달할 텍스트
+        let sendUrl = "final.html"; // 전달할 URL (도메인 서버 오픈 후 url 입력)
+        window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+    }
+        function facbook() {
+        
+        let sendUrl = "final.html"; // 전달할 URL (도메인 서버 오픈 후 url 입력)
+        window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+    }
+        function band() {
+            
+            let sendUrl = "final.html"; // 전달할 URL (도메인 서버 오픈 후 url 입력)
+            window.open("http://band.us/plugin/share?body" + sendUrl);
+        }
+
+    </script>
+
+    
+
+    <script>
+         // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정
+        Kakao.init('a80a498adf2f919c5b8a90f0e35b0a3f');
+
+        // SDK 초기화 여부를 판단
+        console.log(Kakao.isInitialized());
+
+        function kakao() {
+        Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+            title: '색감 테스트!!',
+            description: '색감 테스트로 색 구별 능력을 테스트 해보세요!',
+            imageUrl: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbSGUNO%2FbtrYRlERmQQ%2F3TiS5OGAbJKUhF5ayquAFk%2Fimg.png',
+            link: {
+                mobileWebUrl: 'https://www.naver.com/', //나중에 도메인 생성 후 입력 (카카오 디벨로퍼에도 도메인 추가)
+                webUrl: 'https://www.naver.com/', //나중에 도메인 생성 후 입력 (카카오 디벨로퍼에도 도메인 추가)
+            },
+            },
+            buttons: [
+            {
+                title: '웹으로 보기',
+                link: {
+                mobileWebUrl: 'https://www.naver.com/',//나중에 도메인 생성 후 입력 (카카오 디벨로퍼에도 도메인 추가)
+                webUrl: 'https://www.naver.com/',//나중에 도메인 생성 후 입력 (카카오 디벨로퍼에도 도메인 추가)
+                },
+            },
+            ],
+            // 카카오톡 미설치 시 카카오톡 설치 경로이동
+            installTalk: true,
+        })
+        }  
+            </script>
+
 
     
 </head>
@@ -35,19 +92,16 @@
                 <div class="share">내 점수 공유하기</div>
                 <br>
                 <div class="share-ring">
-                <a href="javascript:;" class="sharekakao">
+                <a href="javascript:kakao();" class="sharekakao">
                     <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQ4Gzb%2FbtrYeYjPS6B%2FlGquuGoxNwv1S4C82zibHK%2Fimg.png" width="30">  
                 </a>
-                <a href="javascript:;" class="shareinstagram">
-                    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcF0qLE%2FbtrYjlrM3l8%2F0my5dXTSFlZ5KfPbrVhULk%2Fimg.png" width="30">  
-                </a>
-                <a href="javascript:;" class="shareFb">
+                <a href="javascript:facbook();" class="sharefacebook">
                     <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FJVHZW%2FbtrYj0HtVtC%2FxNPgknrK7nchqaYPZidchk%2Fimg.png" width="30">  
                 </a>
-                <a href="javascript:;" class="shareband">
+                <a href="javascript:band();" class="shareband">
                     <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FyVSBY%2FbtrYkK5qQrs%2FIFGKwtFTPsieq0x6i4O7MK%2Fimg.jpg" width="30">  
                 </a>
-                <a href="javascript:;" class="sharetwitter">
+                <a href="javascript:twitter();" class="sharetwitter">
                     <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbf0BT4%2FbtrYjydq22Q%2FqJ9vq2e9CTSzDwTgMkvCi0%2Fimg.png" width="30">  
                 </a>
             </div>
