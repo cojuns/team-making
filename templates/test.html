@@ -3,53 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="{{ url_for('static', filename='css/style2.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <title>색감 구별 테스트 나의 점수는??</title>
-
     <script>
-        let SetTime = 3;      // 최초 설정 시간(기본 : 초)
-        function msg_time() {   // 1초씩 카운트      
-        m = Math.floor(SetTime / 60)  + (SetTime % 60) + "초"; // 남은 시간 계산         
-        let msg = "<font>" + m + "</font>";  
-        document.all.times.innerHTML = msg;     // div 영역에 보여줌                  
-        SetTime--;                  // 1초씩 감소
-        if (SetTime < 0) {          // 시간이 종료 되었으면..        
-            clearInterval(tid);     // 타이머 해제
-            window.location.href='/final'
+        let total_score = 0
+        let quiz_num = 1
+        $(document).ready(function () {
+            show_quiz();
+        });
+        let SetTime = 20;      // 최초 설정 시간(기본 : 초)
+        function msg_time() {   // 1초씩 카운트
+            m = Math.floor(SetTime / 60) + (SetTime % 60) + "초"; // 남은 시간 계산
+            let msg = "<font>" + m + "</font>";
+            document.all.times.innerHTML = msg;     // div 영역에 보여줌
+            SetTime--;                  // 1초씩 감소
+            if (SetTime < 0) {          // 시간이 종료 되었으면..
+                clearInterval(tid);     // 타이머 해제
+                window.location.href = '/final?total_score=' + total_score
+            }
+        }
 
-        }       
-    }
-    window.onload = function TimerStart(){ tid=setInterval('msg_time()',1000) };
+        window.onload = function TimerStart() {
+            tid = setInterval('msg_time()', 1000)
+        };
+
+        function show_quiz() {
+            fetch(`/quiz`).then((res) => res.json()).then((data) => {
+                let rows = data['result'][quiz_num - 1]
+                let NUM = rows['NUM']
+                let A_C = rows['A_C']
+                let B_C = rows['B_C']
+                let C_C = rows['C_C']
+                let D_C = rows['D_C']
+                let A_S = rows['A_S']
+                let B_S = rows['B_S']
+                let C_S = rows['C_S']
+                let D_S = rows['D_S']
+                console.log(rows);
+                $('#lv').empty()
+                let lv_html = `<span id="lv">0${NUM}</span>`
+                $('#lv').append(lv_html)
+                $('#box').empty()
+                let color_html = `<div class="quiz-box" id="box">
+                                        <button class="quiz-button" style="background-color:${A_C}" onclick="next_quiz(${A_S})"></button>
+                                        <button class="quiz-button" style="background-color:${B_C}" onclick="next_quiz(${B_S})"></button>
+                                        <button class="quiz-button" style="background-color:${C_C}" onclick="next_quiz(${C_S})"></button>
+                                        <button class="correct-button" style="background-color:${D_C}" onclick="next_quiz(${D_S})"></button>
+                                    </div>`
+                $('#box').append(color_html)
+            })
+        }
+
+        function next_quiz(a) {
+            let score = a
+            if (score == 1) {
+                total_score++;
+                quiz_num++;
+            } else {
+                quiz_num++;
+            }
+
+            if (quiz_num === 11){ 
+                let formData = new FormData();
+                formData.append("score_give", total_score);
+
+                fetch('/final/score', {method: "POST",body: formData,}).then((res) => res.json()).then((data) => {
+                    let total_score = data['result']
+                    window.location.href = '/final?total_score=' + total_score
+                });
+            }
+            
+                console.log(total_score, quiz_num)
+                fetch(`/quiz`).then((res) => res.json()).then((data) => {
+                    let rows = data['result'][quiz_num - 1]
+                    let NUM = rows['NUM']
+                    let A_C = rows['A_C']
+                    let B_C = rows['B_C']
+                    let C_C = rows['C_C']
+                    let D_C = rows['D_C']
+                    let A_S = rows['A_S']
+                    let B_S = rows['B_S']
+                    let C_S = rows['C_S']
+                    let D_S = rows['D_S']
+                    $('#lv').empty()
+                    let lv_html = `<span id="lv">0${NUM}</span>`
+                    $('#lv').append(lv_html)
+                    $('#box').empty()
+                    let color_html = `<div class="quiz-box" id="box">
+                                        <button class="quiz-button" style="background-color:${A_C}" onclick="next_quiz(${A_S})"></button>
+                                        <button class="quiz-button" style="background-color:${B_C}" onclick="next_quiz(${B_S})"></button>
+                                        <button class="quiz-button" style="background-color:${C_C}" onclick="next_quiz(${C_S})"></button>
+                                        <button class="correct-button" style="background-color:${D_C}" onclick="next_quiz(${D_S})"></button>
+                                    </div>`
+                    $('#box').append(color_html)
+                    
+                })
+            
+
+
+        }
     </script>
-
-
 </head>
 <body class="body-color">
-
-    <header>
-        <div class="topinfo">
-            <div class="level">
-                Level<span id="score">1</span>
-            </div>
-
-            <div id="times"></div>
-
-
+<header>
+    <div class="topinfo">
+        <div class="level">
+            Level<span id="lv">01</span>
         </div>
-    </header>
-
+        <div id="times"></div>
+    </div>
+</header>
 <section>
     <div class="wrap">
-       
-        <div class="quiz-box">
-            <button class="quiz-button" onclick="checkQuiz('wrong')"></button>
-            <button class="quiz-button" onclick="checkQuiz('wrong')"></button>
-            <button class="quiz-button" onclick="checkQuiz('wrong')"></button>
-            <button class="correct-button" onclick="checkQuiz('correct')"></button>
+        <div class="quiz-box" id="box">
+            <div class="quiz-box">
+                <button class="quiz-button" onclick="next_quiz(A_S)" style="background-color:#282828"></button>
+                <button class="quiz-button" onclick="next_quiz(B_S)" style="background-color:#3c3c3c"></button>
+                <button class="quiz-button" onclick="next_quiz(C_S)" style="background-color:#282828"></button>
+                <button class="correct-button" onclick="next_quiz(D_S)" style="background-color:#282828"></button>
+            </div>
         </div>
-        
-            
     </div>
 </section>
 </div>

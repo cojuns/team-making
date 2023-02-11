@@ -5,6 +5,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>색감 구별 테스트 나의 점수는??</title>
+    <script>
+        function next(){
+            window.location.href='/test'
+}
+        
+    </script>
 </head>
 <body class="body-color">
 <section>
@@ -30,7 +36,7 @@
             <h3>색감 테스트 4개 중 다른 것을 찾아보세요!</h3>
         </div>
         <div>
-            <button class="mybutton" type="button" onclick="window.location.href='/test'"> > 테스트 시작!</button>
+            <button class="mybutton" type="button" onclick="next()"> 테스트 시작!</button>
         </div>
     </div>
 </section>
